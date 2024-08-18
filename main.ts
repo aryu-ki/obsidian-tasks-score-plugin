@@ -69,6 +69,7 @@ class ScoreRenderChild extends MarkdownRenderChild {
 		}
 		const lineCount = editor.lineCount()
 			let score = 0
+			let targetScore = 0
 			if (this.debug) console.log(`[DEBUG] Starting processing`)
 			for (let i = 0; i < lineCount; i++) {
 				const line = editor.getLine(i)
@@ -79,12 +80,22 @@ class ScoreRenderChild extends MarkdownRenderChild {
 						if (this.debug) console.log(`[DEBUG] Matched score payload: ${scorePayload}`)
 						if (this.debug) console.log(`[DEBUG] parseInt(scorePayload.trim()): ${parseInt(scorePayload.trim())}`)
 						score += parseInt(scorePayload.trim())
+						targetScore += parseInt(scorePayload.trim())
+					}
+				}
+				if (line.startsWith("- [ ]")) {
+					if (this.debug) console.log(`[DEBUG] Found line containing required score payload: ${line}`)
+					const scorePayload = /\[\s*-?(\d+)\s*\]/.exec(line)?.[1]
+					if (scorePayload != null) {
+						if (this.debug) console.log(`[DEBUG] Matched score payload: ${scorePayload}`)
+						if (this.debug) console.log(`[DEBUG] parseInt(scorePayload.trim()): ${parseInt(scorePayload.trim())}`)
+						targetScore += parseInt(scorePayload.trim())
 					}
 				}
 			}
-			if (this.debug) console.log(`[DEBUG] Processing complete. Final score is ${score}`)
+			if (this.debug) console.log(`[DEBUG] Processing complete. Final score is ${score}, target score is ${targetScore}`)
         const content = this.containerEl.createEl('h1');
-		content.textContent = this.source.replace("!score!", `${score}`);
+		content.textContent = this.source.replace("!score!", `${score}`).replace("!target_score!", `${targetScore}`);
         this.containerEl.firstChild?.replaceWith(content);
     }
 }
