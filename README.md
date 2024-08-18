@@ -8,19 +8,21 @@ Just add score notation for your task like this
 ```
 // before
 - [x] My task ...
+- [ ] My #2 task ...
 // with score
 - [x] [3] My task ...
+- [ ] [5] My task ...
 ```
 And then, anywhere in the code
 ````
 ```evals
-Score: !score!/3
+Score: !score!/!target_score!
 ```
 ````
 
 Which will evaluate in
 ```html
-<h1>Score: 3/3</h1>
+<h1>Score: 3/8</h1>
 ```
 and be rendered as
-# Score 3/3
+# Score 3/8
