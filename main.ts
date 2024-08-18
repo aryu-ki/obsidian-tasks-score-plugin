@@ -47,6 +47,7 @@ class ScoreRenderChild extends MarkdownRenderChild {
 
 	onload(): void {
 		this.eventRef = this.workspace.on("editor-change", this.render.bind(this))
+		this.workspace.trigger('editor-change')
 	}
 	
 	onunload(): void {
