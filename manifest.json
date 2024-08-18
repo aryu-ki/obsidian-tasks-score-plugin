@@ -1,0 +1,10 @@
+{
+	"id": "tasks-score-plugin",
+	"name": "Tasks Score",
+	"version": "0.0.1",
+	"miniAppVersion": "0.0.1",
+	"description": "Calculates total score of done tasks on the page",
+	"author": "aryu-ki",
+	"authorUrl": "https://github.com/aryu-ki",
+	"isDesktopOnly": false
+}
