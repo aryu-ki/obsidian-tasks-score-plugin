@@ -1,6 +1,6 @@
 {
 	"name": "obsidian-tasks-plugin",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "Obsidian plugin that calculates total score of done tasks on the page",
 	"main": "main.js",
 	"scripts": {

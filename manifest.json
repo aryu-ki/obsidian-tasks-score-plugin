@@ -1,7 +1,7 @@
 {
 	"id": "tasks-score",
 	"name": "Tasks Score",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"minAppVersion": "0.15.0",
 	"description": "Calculates total score of done tasks on the page",
 	"author": "aryu-ki",
