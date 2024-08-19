@@ -1,18 +1,16 @@
 import { App, EventRef, MarkdownRenderChild, Plugin, PluginSettingTab, Setting, Workspace } from 'obsidian';
 // Remember to rename these classes and interfaces!
 
-interface MyPluginSettings {
-	mySetting: string;
+interface TasksScoreSettings {
 	debug: boolean;
 }
 
-const DEFAULT_SETTINGS: MyPluginSettings = {
-	mySetting: 'default',
+const DEFAULT_SETTINGS: TasksScoreSettings = {
 	debug: false
 }
 
-export default class MyPlugin extends Plugin {
-	settings: MyPluginSettings;
+export default class TasksScorePlugin extends Plugin {
+	settings: TasksScoreSettings;
 
 	async onload() {
 		await this.loadSettings();
@@ -101,9 +99,9 @@ class ScoreRenderChild extends MarkdownRenderChild {
 }
 
 class DebugSettingTab extends PluginSettingTab {
-	plugin: MyPlugin;
+	plugin: TasksScorePlugin;
 
-	constructor(app: App, plugin: MyPlugin) {
+	constructor(app: App, plugin: TasksScorePlugin) {
     super(app, plugin);
     this.plugin = plugin;
 	}
